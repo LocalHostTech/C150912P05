@@ -39,6 +39,14 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.LINE_END);
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel1MouseMoved(evt);
+            }
+        });
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -74,29 +82,44 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
         if(evt.getClickCount() == 2)
         {
-            jTextArea1.append("Doble Click\n");
+            jTextArea1.append("Doble Click " + coordenada + "\n");
         }else{
-            jTextArea1.append("Click\n");
+            jTextArea1.append("Click " + coordenada + "\n");
         }
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
-        jTextArea1.append("Dentro\n");
+        String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
+        jTextArea1.append("Dentro " + coordenada + "\n");
     }//GEN-LAST:event_jPanel1MouseEntered
 
     private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
-        jTextArea1.append("Afuera\n");
+        String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
+        jTextArea1.append("Afuera " + coordenada + "\n");
     }//GEN-LAST:event_jPanel1MouseExited
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        jTextArea1.append("Presionando\n");
+        String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
+        jTextArea1.append("Presionando " + coordenada + "\n");
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void jPanel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseReleased
-        jTextArea1.append("Soltado\n");
+        String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
+        jTextArea1.append("Soltado " + coordenada + "\n");
     }//GEN-LAST:event_jPanel1MouseReleased
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
+        jTextArea1.append("Arrastrando " + coordenada + "\n");
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void jPanel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
+        String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
+        jTextArea1.append("Moviendose " + coordenada + "\n");
+    }//GEN-LAST:event_jPanel1MouseMoved
 
     /**
      * @param args the command line arguments
