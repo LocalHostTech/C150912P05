@@ -1,3 +1,6 @@
+
+import javax.swing.JButton;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,6 +32,9 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,17 +70,34 @@ public class Principal extends javax.swing.JFrame {
                 jPanel1MouseReleased(evt);
             }
         });
+        jPanel1.setLayout(null);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 844, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 675, Short.MAX_VALUE)
-        );
+        jButton1.setText("jButton1");
+        jButton1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButtonMouseDragged(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(750, 530, 73, 23);
+
+        jButton2.setText("jButton2");
+        jButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButtonMouseDragged(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(170, 183, 73, 110);
+
+        jButton3.setText("jButton3");
+        jButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButtonMouseDragged(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(563, 80, 110, 90);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -87,7 +110,7 @@ public class Principal extends javax.swing.JFrame {
         {
             jTextArea1.append("Doble Click " + coordenada + "\n");
         }else{
-            jTextArea1.append("Click " + coordenada + "\n");
+            jTextArea1.append("Click " + (evt.isMetaDown()?"derecho ":"") + coordenada + "\n");
         }
     }//GEN-LAST:event_jPanel1MouseClicked
 
@@ -120,6 +143,13 @@ public class Principal extends javax.swing.JFrame {
         String coordenada = "[" + evt.getX() + ", " + evt.getY() + "]";
         jTextArea1.append("Moviendose " + coordenada + "\n");
     }//GEN-LAST:event_jPanel1MouseMoved
+
+    private void jButtonMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMouseDragged
+        JButton jButton = (JButton) evt.getSource();
+        int x = (int)jButton.getLocation().getX() + (evt.getX() - jButton.getWidth() / 2);
+        int y = (int)jButton.getLocation().getY() + (evt.getY() - jButton.getHeight() / 2);
+        jButton.setLocation(x, y);
+    }//GEN-LAST:event_jButtonMouseDragged
 
     /**
      * @param args the command line arguments
@@ -157,6 +187,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
