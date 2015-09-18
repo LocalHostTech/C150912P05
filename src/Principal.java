@@ -1,5 +1,6 @@
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -35,6 +36,7 @@ public class Principal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +81,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(750, 530, 73, 23);
+        jButton1.setBounds(360, 140, 73, 23);
 
         jButton2.setText("jButton2");
         jButton2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -88,7 +90,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(170, 183, 73, 110);
+        jButton2.setBounds(130, 80, 73, 110);
 
         jButton3.setText("jButton3");
         jButton3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -98,6 +100,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3);
         jButton3.setBounds(563, 80, 110, 90);
+        jPanel1.add(jSeparator1);
+        jSeparator1.setBounds(10, 250, 820, 10);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -149,6 +153,10 @@ public class Principal extends javax.swing.JFrame {
         int x = (int)jButton.getLocation().getX() + (evt.getX() - jButton.getWidth() / 2);
         int y = (int)jButton.getLocation().getY() + (evt.getY() - jButton.getHeight() / 2);
         jButton.setLocation(x, y);
+        
+        if( y >= jSeparator1.getLocation().getY() ){
+            JOptionPane.showMessageDialog(this, "Haz cuzado el límite", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonMouseDragged
 
     /**
@@ -192,6 +200,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
